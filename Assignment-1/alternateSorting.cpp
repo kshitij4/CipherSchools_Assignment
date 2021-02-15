@@ -14,11 +14,13 @@ void alterSort(int a[],int n)
         i++;
         j--;
     }
+    if (n % 2 != 0)
+        cout << a[i];
 }
 
 int main()
 {
-    int arr[]={1, 6, 9, 4, 3, 7, 8, 2};
+    int arr[]={1, 6, 9, 4, 3, 7, 8, 2, 10};
     int n= sizeof(arr)/sizeof(arr[0]);
     alterSort(arr,n);
 
