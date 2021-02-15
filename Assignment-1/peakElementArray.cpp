@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int peakElement(int a[],int n)
+int peakElementNaive(int a[],int n)
 {
     if(n==1)
         return 0;
@@ -19,12 +19,31 @@ int peakElement(int a[],int n)
     return -1;
 }
 
+int peakElementRecursive(int a[],int n,int l,int h)
+{
+    int m = (l + h)/2;
+
+    if((m==0 || a[m-1]<=a[m]) && (m==n-1 || a[m+1] <= a[m]))
+        return m;
+
+    else if (m>0 && a[m-1]>a[m])
+        return peakElementRecursive(a,n,l,(m-1));
+
+    else
+        return peakElementRecursive(a,n,m+1,h);
+}
+
+int findPeak(int a[],int n)
+{
+    return peakElementRecursive(a,n,0,n-1);
+}
+
 int main()
 {
     int array[]= {10, 20, 15, 2, 23, 90, 67};
     int n = sizeof(array)/sizeof(array[0]);
 
-    int idx = peakElement(array,n);
+    int idx = findPeak(array,n);
 
     cout<< array[idx];
 
