@@ -49,10 +49,6 @@ void mergeSort(int arr[],int l,int r){
     mergeSort(arr,m+1,r);
     merge(arr,l,m,r);
 }
-void printArray(int a[], int n)
-{
-
-}
 
 int main()
 {
