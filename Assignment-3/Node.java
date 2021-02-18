@@ -12,7 +12,7 @@ public class Node {
         this.data = data;
         this.next =null;
     }
-    public void printList(Node head) {
+    public static void printList(Node head) {
         Node current = head;
 
         while(current != null) {
@@ -20,5 +20,16 @@ public class Node {
             current = current.next;
         }
         System.out.println();
+    }
+    public static int size(Node head) {
+
+        int length = 0;
+        Node current = head;
+
+        while(current != null) {
+            length++;
+            current = current.next;
+        }
+        return  length;
     }
 }
