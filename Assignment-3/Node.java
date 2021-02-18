@@ -10,6 +10,15 @@ public class Node {
 
     public Node(int data) {
         this.data = data;
+        this.next =null;
     }
-    Node random;
+    public void printList(Node head) {
+        Node current = head;
+
+        while(current != null) {
+            System.out.print(current.data + "  ->  ");
+            current = current.next;
+        }
+        System.out.println();
+    }
 }
