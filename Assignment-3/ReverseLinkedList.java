@@ -20,10 +20,12 @@ public class ReverseLinkedList {
         Node head = new Node(4);
         head.next = new Node(5);
         head.next.next = new Node(6);
+        System.out.println("Before: ");
         Node.printList(head);
 
         Node rev = reverse(head);
 
+        System.out.println("After Reversing: ");
         Node.printList(rev);
     }
 }
