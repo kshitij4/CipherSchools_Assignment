@@ -1,6 +1,6 @@
 package Trees;
 
-public class ConstructTreeUsingPrePost {
+public class TreeUsingInorderAndPreorder {
     public static TreeNode constructTree(int [] inorder, int [] preorder, int preorderIndex, int inStart, int inEnd) {
 
         if(inStart > inEnd) {
