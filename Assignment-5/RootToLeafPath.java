@@ -1,29 +1,52 @@
 package Trees;
 
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class RootToLeafPath {
-    public static List<String> binaryTreePaths(TreeNode root) {
 
-        List<String> paths = new LinkedList<>();
+    static void printPaths(TreeNode node)
+    {
+        int[] path = new int[1000];
+        printRecursive(node, path, 0);
+    }
+    static void printRecursive(TreeNode node, int[] path, int length)
+    {
+        if (node == null)
+            return;
 
-        if (root == null) return paths;
+        path[length] = node.data;
+        length++;
 
-        if (root.left == null && root.right == null) {
-            paths.add(root.data + "");
-            return paths;
+        if (node.left == null && node.right == null)
+            printArray(path, length);
+        else
+        {
+            printRecursive(node.left, path, length);
+            printRecursive(node.right, path, length);
         }
-
-        for (String path : binaryTreePaths(root.left)) {
-            paths.add(root.data + "->" + path);
+    }
+    
+    static void printArray(int[] arr, int len)
+    {
+        int i;
+        for (i = 0; i < len; i++)
+        {
+            System.out.print(arr[i] + " ");
         }
+        System.out.println("");
+    }
 
-        for (String path : binaryTreePaths(root.right)) {
-            paths.add(root.data + "->" + path);
-        }
-        return paths;
+    public static void main(String[] args) {
+        TreeNode root =new TreeNode(10);
+
+        root.left =new TreeNode(20);
+        root.right =new TreeNode(30);
+
+        root.left.left =new TreeNode(40);
+        root.left.right =new TreeNode(50);
+        root.right.left =new TreeNode(60);
+        root.right.right =new TreeNode(70);
+
+        printPaths(root);
     }
 
 }
